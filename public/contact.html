@@ -38,7 +38,7 @@
       Please <strong>do not include</strong> medical details or policy numbers.
     </p>
 
-    <!-- Netlify form (minimal fields; no special-category data) -->
+    <!-- Netlify form -->
     <form name="contact" id="contactForm"
           method="POST"
           data-netlify="true"
@@ -48,7 +48,7 @@
 
       <!-- Netlify requirements -->
       <input type="hidden" name="form-name" value="contact">
-      <p class="hidden"><label>Don’t fill this out: <input name="bot-field" aria-hidden="true"></label></p>
+      <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
       <!-- Contact details -->
       <div class="two">
@@ -73,9 +73,9 @@
         </div>
       </div>
 
-      <!-- Interests only (generic, non-sensitive) -->
-      <div class="fieldset" role="group" aria-labelledby="interests-legend">
-        <div id="interests-legend" class="legend">What are you interested in?</div>
+      <!-- Interests (non-sensitive) -->
+      <div class="fieldset">
+        <div class="legend">What are you interested in?</div>
         <div class="two">
           <label><input type="checkbox" name="interest" value="Life Insurance"> Life Insurance</label>
           <label><input type="checkbox" name="interest" value="Income Protection"> Income Protection</label>
@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <!-- High-level reason (optional; still non-sensitive) -->
+      <!-- High-level reason (optional) -->
       <div>
         <label for="reason_life">Main reason you’re looking for cover <span class="help">(optional)</span></label>
         <select id="reason_life" name="reason_life">
@@ -99,19 +99,19 @@
         </select>
       </div>
 
-      <!-- Free text (explicit direction not to include sensitive data) -->
-      <label for="message">Anything else? <span class="help">(optional — no medical details or policy numbers)</span></label>
+      <!-- Free text (explicit guard) -->
+      <label for="message">Anything else? <span class="help">(optional — no health details or policy numbers)</span></label>
       <textarea id="message" name="message" rows="3" placeholder="Questions or notes (no health/policy details)"></textarea>
 
-      <!-- Consent & notices -->
-      <div class="fieldset" aria-describedby="consent-note">
-        <p id="consent-note" class="help" style="margin-top:0">
+      <!-- Compliance & consent -->
+      <div class="fieldset">
+        <p class="help" style="margin-top:0">
           We’ll handle your data in line with our <a href="privacy.html">Privacy Policy</a>.
           You can withdraw consent at any time.
         </p>
 
         <label>
-          <input type="checkbox" name="age_confirm" required>
+          <input type="checkbox" name="over18" required>
           I confirm I am 18 or over.
         </label>
 
@@ -121,13 +121,13 @@
         </label>
 
         <label>
-          <input type="checkbox" name="consent_future_entity" required>
+          <input type="checkbox" name="consent_future_entity">
           I agree that my details may be used by <strong>Stashvale or any future trading company under its control</strong> for the same purposes, and that my data may be transferred if the business or its client book is sold, under the same privacy terms.
         </label>
 
         <label>
-          <input type="checkbox" name="marketing_opt_in_blog">
-          Email me when a new blog post is published. I understand I can unsubscribe at any time.
+          <input type="checkbox" name="marketing_opt_in">
+          Email me when new blog posts or updates are published (you can opt out anytime).
         </label>
       </div>
 
@@ -149,6 +149,6 @@
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
