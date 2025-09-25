@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Stashvale</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Contact Stashvale</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Get in touch</h2>
+    <p>Ask a question, request a callback, or get a quote. Fill out the form below and we’ll respond as soon as possible.</p>
+
+    <form name="contact" method="POST" data-netlify="true">
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Phone</label>
+      <input type="text" name="phone">
+
+      <label>Product</label>
+      <select name="product">
+        <option>Life Insurance</option>
+        <option>Income Protection</option>
+        <option>Critical Illness</option>
+        <option>Other</option>
+      </select>
+
+      <label>Preferred contact time</label>
+      <input type="text" name="contact_time" placeholder="e.g. Weekdays after 5pm">
+
+      <label>Message</label>
+      <textarea name="message" rows="4"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> Stashvale</p>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
