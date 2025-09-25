@@ -4,26 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stashvale – Financial Protection & Insurance</title>
-  <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0; color:#0b1533;}
-    header {padding:32px 24px; background:#0b1533; color:#fff;}
-    header h1 {margin:0; font-size:28px;}
-    main {padding:32px 24px; max-width:900px; margin:auto;}
-    .cta {display:inline-block; margin-top:16px; padding:12px 18px; border-radius:6px; background:#12b886; color:#fff; text-decoration:none;}
-    footer {padding:24px; text-align:center; color:#667085; border-top:1px solid #eee; margin-top:40px;}
-  </style>
+  <meta name="description" content="We help you compare life insurance, income protection and critical illness cover and choose the right protection." />
+  <meta property="og:title" content="Stashvale – Financial Protection & Insurance">
+  <meta property="og:description" content="Compare life insurance, income protection and critical illness cover.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:,">
 </head>
 <body>
-  <header>
-    <h1>Stashvale</h1>
-    <p>Financial protection & insurance information</p>
+  <header class="site">
+    <div class="container">
+      <div class="brand">
+        <h1>Stashvale</h1>
+      </div>
+      <nav aria-label="Primary">
+        <a class="active" href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>We’ll help you compare & choose the right cover</h2>
-    <p>This is a temporary homepage so we can go live now. The full site (pages, blog, forms, legal) will be added next.</p>
-    <a class="cta" href="mailto:info.stashvale@gmail.com">Contact us</a>
+
+  <main class="container">
+    <section class="hero">
+      <h2>We’ll help you compare & choose the right cover</h2>
+      <p class="lead">Clear, independent information on life insurance, income protection and critical illness — so you can protect the people and things that matter.</p>
+      <a class="btn" href="contact.html">Get a quote or ask a question</a>
+    </section>
+
+    <section class="grid cols-3">
+      <article class="card">
+        <h3>Life Insurance</h3>
+        <p>Protect your family with a payout if you die during the policy term.</p>
+        <small class="muted">Level, decreasing & family income benefit.</small>
+      </article>
+      <article class="card">
+        <h3>Income Protection</h3>
+        <p>Monthly benefit if illness or injury stops you working.</p>
+        <small class="muted">Short & long-term options.</small>
+      </article>
+      <article class="card">
+        <h3>Critical Illness</h3>
+        <p>Lump sum if you’re diagnosed with a serious condition covered by the policy.</p>
+        <small class="muted">Cancer, heart attack, stroke & more.</small>
+      </article>
+    </section>
   </main>
-  <footer>© <span id="y"></span> Stashvale</footer>
+
+  <footer class="site">
+    <div class="container row">
+      <div>© <span id="y"></span> Stashvale</div>
+      <div>·</div>
+      <div><a href="privacy.html">Privacy</a></div>
+      <div>·</div>
+      <div><a href="terms.html">Terms</a></div>
+      <div style="flex:1"></div>
+      <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
+    </div>
+  </footer>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
