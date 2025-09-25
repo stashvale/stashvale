@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Stashvale</title>
-  <meta name="description" content="Ask a question, request a callback or register your interest in protection. No advice is provided via this website." />
+  <meta name="description" content="Enquiry form about protection products. Information only—no regulated advice is provided via this website." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:,">
   <style>
@@ -32,9 +32,13 @@
 
   <main class="container page">
     <h2>Get in touch</h2>
-    <p class="lead">Share a few details and we’ll follow up. This site is for information and enquiry only — no financial advice is provided here.</p>
+    <p class="lead">
+      Share a few details and we’ll follow up. This website provides information only —
+      <strong>no regulated financial advice</strong> is provided here.
+      Please <strong>do not include</strong> medical details or policy numbers.
+    </p>
 
-    <!-- Netlify form -->
+    <!-- Netlify form (minimal fields; no special-category data) -->
     <form name="contact" id="contactForm"
           method="POST"
           data-netlify="true"
@@ -44,7 +48,7 @@
 
       <!-- Netlify requirements -->
       <input type="hidden" name="form-name" value="contact">
-      <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+      <p class="hidden"><label>Don’t fill this out: <input name="bot-field" aria-hidden="true"></label></p>
 
       <!-- Contact details -->
       <div class="two">
@@ -64,14 +68,14 @@
           <input id="phone" name="phone" autocomplete="tel" required>
         </div>
         <div>
-          <label for="dob">Date of birth <span class="help">(optional)</span></label>
-          <input id="dob" name="dob" type="date">
+          <label for="contact_time">Best time to contact <span class="help">(optional)</span></label>
+          <input id="contact_time" name="contact_time" placeholder="e.g. Weekdays after 5pm">
         </div>
       </div>
 
-      <!-- Interests -->
-      <div class="fieldset">
-        <div class="legend">What are you interested in?</div>
+      <!-- Interests only (generic, non-sensitive) -->
+      <div class="fieldset" role="group" aria-labelledby="interests-legend">
+        <div id="interests-legend" class="legend">What are you interested in?</div>
         <div class="two">
           <label><input type="checkbox" name="interest" value="Life Insurance"> Life Insurance</label>
           <label><input type="checkbox" name="interest" value="Income Protection"> Income Protection</label>
@@ -82,108 +86,56 @@
         </div>
       </div>
 
-      <!-- Existing cover logic -->
-      <div class="fieldset">
-        <div class="legend">Do you currently have life cover?</div>
-        <label><input type="radio" name="has_cover" value="No" checked> No</label>
-        <label><input type="radio" name="has_cover" value="Yes"> Yes</label>
-
-        <!-- If NO: reason -->
-        <div id="reasonWrap" class="stack" style="margin-top:12px">
-          <label for="reason">Main reason you’re looking for cover</label>
-          <select id="reason" name="reason">
-            <option>Family protection</option>
-            <option>Mortgage protection</option>
-            <option>After-life / funeral costs</option>
-            <option>Income security</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <!-- If YES: optional policy fields -->
-        <div id="currentWrap" class="stack hidden" style="margin-top:12px">
-          <div class="two">
-            <div>
-              <label for="provider">Current provider <span class="help">(optional)</span></label>
-              <input id="provider" name="provider" placeholder="e.g. Legal & General">
-            </div>
-            <div>
-              <label for="premium">Monthly premium (£) <span class="help">(optional)</span></label>
-              <input id="premium" name="premium" inputmode="decimal" placeholder="e.g. 18.50">
-            </div>
-          </div>
-          <div class="two">
-            <div>
-              <label for="sum">Sum assured (£) <span class="help">(optional)</span></label>
-              <input id="sum" name="sum" inputmode="decimal" placeholder="e.g. 200,000">
-            </div>
-            <div>
-              <label for="term">Policy term (years) <span class="help">(optional)</span></label>
-              <input id="term" name="term" type="number" min="0" step="1" placeholder="e.g. 25">
-            </div>
-          </div>
-        </div>
+      <!-- High-level reason (optional; still non-sensitive) -->
+      <div>
+        <label for="reason_life">Main reason you’re looking for cover <span class="help">(optional)</span></label>
+        <select id="reason_life" name="reason_life">
+          <option value="">Please select (optional)</option>
+          <option>Family protection</option>
+          <option>Mortgage protection</option>
+          <option>After-life / funeral costs</option>
+          <option>Income security</option>
+          <option>Other</option>
+        </select>
       </div>
 
-      <!-- Health (optional) -->
-      <div class="fieldset">
-        <div class="legend">Health (optional)</div>
-        <label><input type="radio" name="health_flag" value="No" checked> No current serious conditions / tests</label>
-        <label><input type="radio" name="health_flag" value="Yes"> Yes – current condition or pending tests</label>
-        <div id="healthDetailWrap" class="hidden" style="margin-top:12px">
-          <label for="health_details">Brief details <span class="help">(optional; share only what you’re comfortable with)</span></label>
-          <textarea id="health_details" name="health_details" rows="3"></textarea>
-        </div>
-      </div>
+      <!-- Free text (explicit direction not to include sensitive data) -->
+      <label for="message">Anything else? <span class="help">(optional — no medical details or policy numbers)</span></label>
+      <textarea id="message" name="message" rows="3" placeholder="Questions or notes (no health/policy details)"></textarea>
 
-      <!-- Preferences -->
-      <div class="two">
-        <div>
-          <label for="contact_method">Preferred contact method</label>
-          <select id="contact_method" name="contact_method">
-            <option>Phone</option>
-            <option>Email</option>
-            <option>Either</option>
-          </select>
-        </div>
-        <div>
-          <label for="contact_time">Best time to contact <span class="help">(optional)</span></label>
-          <input id="contact_time" name="contact_time" placeholder="e.g. Weekdays after 5pm">
-        </div>
-      </div>
-
-      <label for="message">Anything else? <span class="help">(optional)</span></label>
-      <textarea id="message" name="message" rows="3" placeholder="Questions or notes"></textarea>
-
-      <!-- Consent -->
-      <div class="fieldset">
-        <p class="help" style="margin-top:0">
-          Stashvale provides information only and does not currently offer regulated financial advice via this website.
+      <!-- Consent & notices -->
+      <div class="fieldset" aria-describedby="consent-note">
+        <p id="consent-note" class="help" style="margin-top:0">
+          We’ll handle your data in line with our <a href="privacy.html">Privacy Policy</a>.
+          You can withdraw consent at any time.
         </p>
 
         <label>
+          <input type="checkbox" name="age_confirm" required>
+          I confirm I am 18 or over.
+        </label>
+
+        <label>
           <input type="checkbox" name="consent_core" required>
-          I consent to <strong>Stashvale</strong> collecting, storing and using my information to contact me about protection products and related services now or in the future. I understand no financial advice is being provided via this website.
+          I consent to <strong>Stashvale</strong> collecting, storing and using my information to contact me about protection products and related services. I understand that no regulated financial advice is provided via this website.
         </label>
 
         <label>
-          <input type="checkbox" name="consent_sensitive">
-          I consent to Stashvale processing any health or policy information I choose to provide so they can respond to my enquiry.
+          <input type="checkbox" name="consent_future_entity" required>
+          I agree that my details may be used by <strong>Stashvale or any future trading company under its control</strong> for the same purposes, and that my data may be transferred if the business or its client book is sold, under the same privacy terms.
         </label>
 
         <label>
-          <input type="checkbox" name="consent_future_entity">
-          I agree that my details may be used by <strong>Stashvale or any future company trading under its control</strong> for the same purposes, and that my data may be transferred if the business or its client book is sold, under the same privacy terms.
-        </label>
-
-        <label>
-          <input type="checkbox" name="marketing_opt_in">
-          I’d like to receive occasional updates by email (you can opt out anytime).
+          <input type="checkbox" name="marketing_opt_in_blog">
+          Email me when a new blog post is published. I understand I can unsubscribe at any time.
         </label>
       </div>
 
+      <!-- Optional bot protection (enable in Netlify if you want it) -->
+      <!-- <div data-netlify-recaptcha="true"></div> -->
+
       <button type="submit" class="btn">Send</button>
-      <p class="help">By submitting, you confirm the details are accurate to the best of your knowledge.</p>
+      <p class="help">After you submit, you’ll see a confirmation page.</p>
     </form>
   </main>
 
@@ -197,31 +149,6 @@
     </div>
   </footer>
 
-  <script>
-    // Year stamp
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Conditional UI
-    const coverRadios = document.querySelectorAll('input[name="has_cover"]');
-    const reasonWrap = document.getElementById('reasonWrap');
-    const currentWrap = document.getElementById('currentWrap');
-    const healthRadios = document.querySelectorAll('input[name="health_flag"]');
-    const healthWrap = document.getElementById('healthDetailWrap');
-
-    function updateCoverUI(){
-      const val = document.querySelector('input[name="has_cover"]:checked').value;
-      if(val === 'Yes'){ currentWrap.classList.remove('hidden'); reasonWrap.classList.add('hidden'); }
-      else { currentWrap.classList.add('hidden'); reasonWrap.classList.remove('hidden'); }
-    }
-    coverRadios.forEach(r => r.addEventListener('change', updateCoverUI));
-    updateCoverUI();
-
-    function updateHealth(){
-      const v = document.querySelector('input[name="health_flag"]:checked').value;
-      if(v === 'Yes') healthWrap.classList.remove('hidden'); else healthWrap.classList.add('hidden');
-    }
-    healthRadios.forEach(r => r.addEventListener('change', updateHealth));
-    updateHealth();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
