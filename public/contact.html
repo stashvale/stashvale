@@ -7,148 +7,113 @@
   <meta name="description" content="Enquiry form about protection products. Information only—no regulated advice is provided via this website." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:,">
-  <style>
-    .hidden{display:none}
-    .help{color:#667085;font-size:.9rem}
-    .stack{display:grid;gap:12px}
-    .two{display:grid;gap:12px}
-    @media(min-width:720px){ .two{ grid-template-columns:1fr 1fr } }
-    .fieldset{border:1px solid var(--border);padding:16px;border-radius:10px;background:#fff}
-    .legend{font-weight:700;margin-bottom:8px}
-  </style>
 </head>
 <body>
-  <header class="site">
-    <div class="container">
-      <div class="brand"><h1>Stashvale</h1></div>
-      <nav aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a class="active" href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </nav>
-    </div>
-  </header>
+<header class="site">
+  <div class="container">
+    <div class="brand"><h1>Stashvale</h1></div>
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a class="active" href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="container page">
-    <h2>Get in touch</h2>
-    <p class="lead">
-      Share a few details and we’ll follow up. This website provides information only —
-      <strong>no regulated financial advice</strong> is provided here.
-      Please <strong>do not include</strong> medical details or policy numbers.
-    </p>
+<main class="container page">
+  <h2>Get in touch</h2>
+  <p class="lead">
+    Share a few details and we’ll follow up. This website provides information only —
+    <strong>no regulated financial advice</strong> is provided here.
+    Please <strong>do not include</strong> medical details or policy numbers.
+  </p>
 
-    <!-- Netlify form -->
-    <form name="contact" id="contactForm"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/thank-you.html"
-          class="stack">
+  <form name="contact" id="contactForm"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/thank-you.html"
+        class="stack">
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
-      <!-- Netlify requirements -->
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
-
-      <!-- Contact details -->
-      <div class="two">
-        <div>
-          <label for="name">Full name *</label>
-          <input id="name" name="name" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="email">Email *</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-        </div>
-      </div>
-
-      <div class="two">
-        <div>
-          <label for="phone">Phone *</label>
-          <input id="phone" name="phone" autocomplete="tel" required>
-        </div>
-        <div>
-          <label for="contact_time">Best time to contact <span class="help">(optional)</span></label>
-          <input id="contact_time" name="contact_time" placeholder="e.g. Weekdays after 5pm">
-        </div>
-      </div>
-
-      <!-- Interests (non-sensitive) -->
-      <div class="fieldset">
-        <div class="legend">What are you interested in?</div>
-        <div class="two">
-          <label><input type="checkbox" name="interest" value="Life Insurance"> Life Insurance</label>
-          <label><input type="checkbox" name="interest" value="Income Protection"> Income Protection</label>
-          <label><input type="checkbox" name="interest" value="Critical Illness"> Critical Illness</label>
-          <label><input type="checkbox" name="interest" value="Family Income Benefit"> Family Income Benefit</label>
-          <label><input type="checkbox" name="interest" value="Whole of Life"> Whole of Life</label>
-          <label><input type="checkbox" name="interest" value="Other"> Other</label>
-        </div>
-      </div>
-
-      <!-- High-level reason (optional) -->
+    <div class="two">
       <div>
-        <label for="reason_life">Main reason you’re looking for cover <span class="help">(optional)</span></label>
-        <select id="reason_life" name="reason_life">
-          <option value="">Please select (optional)</option>
-          <option>Family protection</option>
-          <option>Mortgage protection</option>
-          <option>After-life / funeral costs</option>
-          <option>Income security</option>
-          <option>Other</option>
-        </select>
+        <label for="name">Full name *</label>
+        <input id="name" name="name" autocomplete="name" required>
       </div>
-
-      <!-- Free text (explicit guard) -->
-      <label for="message">Anything else? <span class="help">(optional — no health details or policy numbers)</span></label>
-      <textarea id="message" name="message" rows="3" placeholder="Questions or notes (no health/policy details)"></textarea>
-
-      <!-- Compliance & consent -->
-      <div class="fieldset">
-        <p class="help" style="margin-top:0">
-          We’ll handle your data in line with our <a href="privacy.html">Privacy Policy</a>.
-          You can withdraw consent at any time.
-        </p>
-
-        <label>
-          <input type="checkbox" name="over18" required>
-          I confirm I am 18 or over.
-        </label>
-
-        <label>
-          <input type="checkbox" name="consent_core" required>
-          I consent to <strong>Stashvale</strong> collecting, storing and using my information to contact me about protection products and related services. I understand that no regulated financial advice is provided via this website.
-        </label>
-
-        <label>
-          <input type="checkbox" name="consent_future_entity">
-          I agree that my details may be used by <strong>Stashvale or any future trading company under its control</strong> for the same purposes, and that my data may be transferred if the business or its client book is sold, under the same privacy terms.
-        </label>
-
-        <label>
-          <input type="checkbox" name="marketing_opt_in">
-          Email me when new blog posts or updates are published (you can opt out anytime).
-        </label>
+      <div>
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
       </div>
-
-      <!-- Optional bot protection (enable in Netlify if you want it) -->
-      <!-- <div data-netlify-recaptcha="true"></div> -->
-
-      <button type="submit" class="btn">Send</button>
-      <p class="help">After you submit, you’ll see a confirmation page.</p>
-    </form>
-  </main>
-
-  <footer class="site">
-    <div class="container row">
-      <div>© <span id="y"></span> Stashvale</div><div>·</div>
-      <div><a href="privacy.html">Privacy</a></div><div>·</div>
-      <div><a href="terms.html">Terms</a></div>
-      <div style="flex:1"></div>
-      <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
     </div>
-  </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+    <div class="two">
+      <div>
+        <label for="phone">Phone *</label>
+        <input id="phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div>
+        <label for="contact_time">Best time to contact <span class="help">(optional)</span></label>
+        <input id="contact_time" name="contact_time" placeholder="e.g. Weekdays after 5pm">
+      </div>
+    </div>
+
+    <div class="fieldset">
+      <div class="legend">What are you interested in?</div>
+      <div class="two">
+        <label><input type="checkbox" name="interest" value="Life Insurance"> Life Insurance</label>
+        <label><input type="checkbox" name="interest" value="Income Protection"> Income Protection</label>
+        <label><input type="checkbox" name="interest" value="Critical Illness"> Critical Illness</label>
+        <label><input type="checkbox" name="interest" value="Family Income Benefit"> Family Income Benefit</label>
+        <label><input type="checkbox" name="interest" value="Whole of Life"> Whole of Life</label>
+        <label><input type="checkbox" name="interest" value="Business Protection"> Business Protection</label>
+        <label><input type="checkbox" name="interest" value="Cash ISA"> Cash ISA</label>
+        <label><input type="checkbox" name="interest" value="Stocks & Shares ISA"> Stocks & Shares ISA</label>
+        <label><input type="checkbox" name="interest" value="Lifetime ISA"> Lifetime ISA</label>
+        <label><input type="checkbox" name="interest" value="Junior ISA"> Junior ISA</label>
+        <label><input type="checkbox" name="interest" value="GIA"> GIA</label>
+        <label><input type="checkbox" name="interest" value="SIPP"> SIPP</label>
+      </div>
+    </div>
+
+    <label for="message">Anything else? <span class="help">(optional — no health/policy details)</span></label>
+    <textarea id="message" name="message" rows="3" placeholder="Questions or notes (no health/policy details)"></textarea>
+
+    <div class="fieldset">
+      <p class="help" style="margin-top:0">
+        We’ll handle your data in line with our <a href="privacy.html">Privacy Policy</a>.
+        You can withdraw consent at any time.
+      </p>
+      <label>
+        <input type="checkbox" name="consent_core" required>
+        I consent to <strong>Stashvale</strong> collecting, storing and using my information to contact me about protection products and related services. I understand that no regulated financial advice is provided via this website.
+      </label>
+      <label>
+        <input type="checkbox" name="consent_future_entity">
+        I agree that my details may be used by <strong>Stashvale or any future trading company under its control</strong> for the same purposes, and that my data may be transferred if the business or its client book is sold, under the same privacy terms.
+      </label>
+      <label>
+        <input type="checkbox" name="marketing_opt_in">
+        I’d like to receive occasional updates by email (you can opt out anytime).
+      </label>
+    </div>
+
+    <button type="submit" class="btn">Send</button>
+    <p class="help">After you submit, you’ll see a confirmation page.</p>
+  </form>
+</main>
+
+<footer class="site">
+  <div class="container row">
+    <div>© <span id="y"></span> Stashvale</div><div>·</div>
+    <div><a href="privacy.html">Privacy</a></div><div>·</div>
+    <div><a href="terms.html">Terms</a></div>
+    <div style="flex:1"></div>
+    <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
