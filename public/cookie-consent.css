@@ -1,0 +1,25 @@
+/* Minimal cookie banner styles */
+#cookie-banner {
+  position: fixed; inset: auto 0 0 0; z-index: 9999;
+  background: #0b1533; color: #fff; padding: 16px; box-shadow: 0 -6px 20px rgba(0,0,0,.2);
+  font: 14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+#cookie-banner .inner {max-width: 1080px; margin: 0 auto; display: grid; gap: 10px;}
+#cookie-banner p {margin: 0;}
+#cookie-banner a {color: #9adbe1; text-decoration: underline;}
+#cookie-banner .actions {display: flex; gap: 8px; flex-wrap: wrap;}
+#cookie-banner button {
+  border: 0; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: 700;
+}
+#cookie-accept {background:#12b886; color:#fff;}
+#cookie-reject, #cookie-settings {background:#fff; color:#0b1533;}
+#cookie-settings-panel {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; align-items: center; justify-content: center; z-index: 10000;
+}
+#cookie-settings-card {
+  background:#fff; color:#0b1533; padding: 16px; border-radius: 12px; width: min(560px, 92%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+#cookie-settings-card h3{margin-top:0}
+#cookie-settings-card label{display:flex; align-items:center; gap:8px; margin:8px 0;}
+#cookie-save {background:#0b1533; color:#fff; padding:10px 14px; border-radius:8px; border:0; cursor:pointer; font-weight:700;}
