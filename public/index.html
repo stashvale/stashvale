@@ -3,17 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stashvale – Understand Insurance, Investing & Planning</title>
-  <meta name="description" content="Plain-English guides on insurance & financial cover, investing & savings, and planning for the future. Information only – no financial advice.">
+  <title>Stashvale – Financial Information & Guides</title>
+  <meta name="description" content="Plain-English guides on protection, savings and planning. Information only – not financial advice.">
+  <meta name="theme-color" content="#0b1533">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:,">
+
+  <!-- Basic SEO / Open Graph -->
+  <meta property="og:title" content="Stashvale – Financial Information & Guides">
+  <meta property="og:description" content="Information-only articles on insurance, savings, and planning. No advice.">
+  <meta property="og:type" content="website">
+
+  <!-- Minimal inline styles just for the modal -->
+  <style>
+    .sv-modal-backdrop{
+      position:fixed; inset:0; background:rgba(11,21,51,.6);
+      display:none; align-items:center; justify-content:center; z-index:9999;
+    }
+    .sv-modal{
+      max-width:560px; width:92%; background:#fff; border-radius:12px;
+      box-shadow:0 12px 40px rgba(0,0,0,.25); padding:24px;
+      color:#0b1533; line-height:1.55;
+    }
+    .sv-modal h3{margin:0 0 10px}
+    .sv-modal p{margin:0 0 14px}
+    .sv-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .sv-btn{
+      display:inline-block; border-radius:8px; padding:12px 16px; font-weight:700;
+      text-decoration:none; border:0; cursor:pointer;
+    }
+    .sv-primary{background:#12b886; color:#fff}
+    .sv-secondary{background:#eef2f7; color:#0b1533}
+    .sv-small{font-size:.9rem; color:#667085}
+    /* Small cards on home */
+    .pill{display:inline-block; padding:4px 10px; border-radius:999px; background:#eef2f7; color:#0b1533; font-weight:600; font-size:.85rem}
+  </style>
 </head>
+
 <body>
+  <!-- Header -->
   <header class="site">
     <div class="container">
       <div class="brand"><h1>Stashvale</h1></div>
       <nav aria-label="Primary">
         <a class="active" href="index.html">Home</a>
+        <a href="insurance-cover.html">Insurance & Cover</a>
+        <a href="investments-savings.html">Investments & Savings</a>
+        <a href="planning.html">Planning</a>
         <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -21,33 +57,93 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <main class="container">
     <section class="hero">
-      <h2>Understand insurance, investing & planning in plain English</h2>
-      <p class="lead">Independent, educational guides to help you get your bearings. This site provides information only — <strong>no regulated financial advice</strong>.</p>
+      <span class="pill">Information only</span>
+      <h2 style="margin-top:10px">Clear, no-jargon guides to protection, savings & planning</h2>
+      <p class="lead">Stashvale publishes plain-English explanations to help you understand financial topics. This site provides <strong>information only</strong> and <strong>does not offer financial advice</strong>.</p>
+      <div style="margin-top:12px">
+        <a class="btn" href="insurance-cover.html">Explore Insurance & Cover</a>
+        <a class="btn" href="investments-savings.html" style="margin-left:8px">Explore Investments & Savings</a>
+        <a class="btn" href="planning.html" style="margin-left:8px">Explore Planning</a>
+      </div>
+      <p class="sv-small" style="margin-top:10px">Content is based on current rules and may change in the future.</p>
     </section>
 
+    <!-- Quick sections -->
     <section class="grid cols-3">
       <article class="card">
-        <h3>Insurance & Financial Cover</h3>
-        <p>Learn how cover works and what the main options are.</p>
-        <a class="btn" href="insurance-cover.html">Explore Insurance & Cover</a>
+        <h3>Insurance & Cover</h3>
+        <p>Life insurance, income protection, critical illness, family income benefit, whole of life & business protection.</p>
+        <a class="btn" href="insurance-cover.html">Explore</a>
       </article>
 
       <article class="card">
         <h3>Investments & Savings</h3>
-        <p>Understand ISAs, SIPPs, GIAs and how tax-wrappers differ.</p>
-        <a class="btn" href="investments-savings.html">Explore Investments & Savings</a>
+        <p>Stocks & Shares ISA, Cash ISA, Lifetime ISA, Junior ISA, GIA and pensions (SIPP) explained in plain English.</p>
+        <a class="btn" href="investments-savings.html">Explore</a>
       </article>
 
       <article class="card">
-        <h3>Planning & Future</h3>
-        <p>Read about mortgages (info only), Help to Buy, and IHT basics.</p>
-        <a class="btn" href="planning-future.html">Explore Planning & Future</a>
+        <h3>Planning</h3>
+        <p>Foundations like emergency funds, budgeting basics, and high-level estate/inheritance tax concepts.</p>
+        <a class="btn" href="planning.html">Explore</a>
       </article>
+    </section>
+
+    <!-- Latest Insights (link through to your category pages or individual blogs as you add them) -->
+    <section class="page">
+      <h3>Latest insights</h3>
+      <div class="grid cols-3">
+        <article class="card">
+          <h4><a href="life-insurance.html">Life Insurance – Basics & Types</a></h4>
+          <p class="muted">Level vs. decreasing vs. family income benefit, in plain English (information only).</p>
+        </article>
+        <article class="card">
+          <h4><a href="income-protection.html">Income Protection – How it works</a></h4>
+          <p class="muted">What IP covers, typical waiting periods and terms (no advice).</p>
+        </article>
+        <article class="card">
+          <h4><a href="stocks-shares-isa.html">Stocks & Shares ISA – Overview</a></h4>
+          <p class="muted">Tax-efficient investing wrapper explained at a high level (rules may change).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="page card">
+      <h3>Stay informed (newsletter)</h3>
+      <p class="muted">Get an email when we publish new blogs, guides or articles. All content is for <strong>information only</strong> and <strong>not financial advice</strong>.</p>
+
+      <!-- Netlify newsletter form -->
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="stack">
+        <!-- Netlify requirements -->
+        <input type="hidden" name="form-name" value="newsletter">
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+        <label for="subEmail">Email *</label>
+        <input id="subEmail" name="email" type="email" autocomplete="email" required>
+
+        <!-- REQUIRED consent to receive emails (specific, separate consent) -->
+        <label>
+          <input type="checkbox" name="consent_email" required>
+          I consent to receive occasional email updates from <strong>Stashvale</strong>. I understand all content is for <strong>information only</strong> and <strong>not financial advice</strong>. I can unsubscribe at any time.
+        </label>
+
+        <!-- Optional marketing tick if you want it distinct -->
+        <label>
+          <input type="checkbox" name="marketing_opt_in">
+          I’m happy to receive occasional news about new pages or features.
+        </label>
+
+        <button type="submit" class="btn">Subscribe</button>
+        <p class="sv-small">We handle your data per our <a href="privacy.html">Privacy Policy</a>.</p>
+      </form>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site">
     <div class="container row">
       <div>© <span id="y"></span> Stashvale</div><div>·</div>
@@ -57,6 +153,46 @@
       <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <!-- 18+ / Information-only modal -->
+  <div id="svGate" class="sv-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="svGateTitle">
+    <div class="sv-modal">
+      <h3 id="svGateTitle">Before you continue</h3>
+      <p>By continuing, you confirm you are <strong>18 or over</strong> and you understand that <strong>Stashvale provides information only and does not offer financial advice</strong>.</p>
+      <p class="sv-small">Content is for education and general information. Rules and allowances can change.</p>
+      <div class="sv-actions">
+        <button id="svAgree" class="sv-btn sv-primary">Yes — I’m 18+ and understand</button>
+        <button id="svExit" class="sv-btn sv-secondary" type="button">Exit site</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Gatekeeper modal (session-based)
+    (function(){
+      try{
+        var agreed = sessionStorage.getItem('svConsent');
+        var gate = document.getElementById('svGate');
+        var agreeBtn = document.getElementById('svAgree');
+        var exitBtn = document.getElementById('svExit');
+
+        function show(){ gate.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function hide(){ gate.style.display = 'none'; document.body.style.overflow = ''; }
+
+        if(!agreed){ show(); }
+
+        agreeBtn.addEventListener('click', function(){
+          sessionStorage.setItem('svConsent', 'yes');
+          hide();
+        });
+        exitBtn.addEventListener('click', function(){
+          window.location.href = 'https://www.google.com';
+        });
+      }catch(e){ /* if storage blocked, fail closed and show modal */ }
+    })();
+  </script>
 </body>
 </html>
