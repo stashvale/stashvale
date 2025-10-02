@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stashvale — Insurance, Investing & Future Planning (Information Only)</title>
+  <title>Stashvale - Insurance, Investing & Future Planning (Information Only)</title>
   <meta name="description" content="Stashvale is an independent, information-only resource that explains insurance, investing and future planning in plain English. No regulated advice is provided." />
   <link rel="icon" href="data:,">
   <style>
@@ -60,22 +60,29 @@
     .consents{font-size:.95rem}
     .consents label{font-weight:normal}
 
-    /* 18+ / Info Gate (modal) */
-    .gate-wrap{position:fixed;inset:0;background:rgba(11,21,51,.55);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
-    .gate{max-width:560px;background:#fff;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow);padding:24px}
-    .gate h3{margin:0 0 8px}
-    .gate p{margin:0 0 12px}
-    .gate .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-
-    /* Cookie Banner (bottom) */
-    .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;background:#ffffff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:14px 16px;display:none;z-index:9998}
-    .cookie-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .cookie-row p{margin:0;flex:1;color:#3a3f55}
-    .cookie-row a{color:#0b4ad8;text-decoration:none}
-    .cookie-row a:hover{text-decoration:underline}
-    .cookie-actions{display:flex;gap:8px}
+    /* Cookie Banner (new card style) */
+    .cookie-banner{
+      position:fixed;
+      left:50%;
+      bottom:15%;
+      transform:translateX(-50%);
+      width:90%;
+      max-width:500px;
+      background:#ffffff;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      border-radius:14px;
+      padding:20px;
+      display:none;
+      z-index:9998;
+      text-align:center;
+    }
+    .cookie-banner p{margin:0 0 14px;color:#3a3f55;font-size:0.95rem;}
+    .cookie-banner a{color:#0b4ad8;text-decoration:none}
+    .cookie-banner a:hover{text-decoration:underline}
+    .cookie-actions{display:flex;justify-content:center;gap:10px;margin-top:10px;}
     .btn.outline{background:#fff;color:#0b1533;border:1px solid var(--border)}
-    .btn.small{padding:8px 12px;font-weight:700}
+    .btn.small{padding:10px 16px;font-weight:700;border-radius:8px}
 
     /* Small print helper */
     .small{font-size:.9rem}
@@ -101,12 +108,12 @@
 
   <main class="container page">
 
-    <!-- About Stashvale (Version B) -->
+    <!-- About Stashvale -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title">Welcome to Stashvale</h2>
       <p class="lead">
         Stashvale is a resource designed to help you make more confident decisions about
-        insurance, saving, investing and future planning — all explained in plain English.
+        insurance, saving, investing and future planning - all explained in plain English.
       </p>
       <p class="muted small">
         We provide information and education only and do not provide regulated financial advice.
@@ -155,33 +162,10 @@
       </div>
     </section>
 
-    <!-- Latest Guides (safe links to category pages so nothing 404s) -->
-    <section class="section" aria-labelledby="latest-title">
-      <h2 id="latest-title">Latest Guides</h2>
-      <div class="grid cols-3">
-        <article class="card">
-          <h3 class="small" style="margin-bottom:6px">Insurance</h3>
-          <p class="muted small">Life Insurance, Income Protection, Critical Illness & more.</p>
-          <a class="btn" href="insurance-cover.html">View Insurance Guides</a>
-        </article>
-        <article class="card">
-          <h3 class="small" style="margin-bottom:6px">Investing & Saving</h3>
-          <p class="muted small">Stocks & Shares ISA, Cash ISA, LISA, GIA, SIPPs.</p>
-          <a class="btn" href="investments-savings.html">View Saving & Investing Guides</a>
-        </article>
-        <article class="card">
-          <h3 class="small" style="margin-bottom:6px">Future Planning</h3>
-          <p class="muted small">Estate planning and getting organised for the long term.</p>
-          <a class="btn" href="future-planning.html">View Future Planning Guides</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Newsletter (info-only) -->
+    <!-- Newsletter -->
     <section class="section" aria-labelledby="news-title">
       <h2 id="news-title">Get new guides by email</h2>
       <p class="muted small">Optional. We’ll only send occasional updates. You can opt out any time.</p>
-      <!-- Replace action with Formspree/Netlify when ready -->
       <form action="https://formspree.io/f/your-id" method="POST" novalidate>
         <div>
           <label for="subEmail">Email</label>
@@ -211,32 +195,17 @@
     </div>
   </footer>
 
-  <!-- 18+ / Information-only Gate -->
-  <div class="gate-wrap" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
-    <div class="gate">
-      <h3 id="gateTitle">Before you continue</h3>
-      <p id="gateDesc" class="muted small">
-        Please confirm you are 18+ and understand this website provides information only and does not offer regulated financial advice.
-      </p>
-      <div class="actions">
-        <button class="btn" id="gateAccept">Yes, I’m 18+ and I understand</button>
-        <button class="btn outline" id="gateMore">Read our Privacy & Terms</button>
-      </div>
-      <p class="muted small" style="margin-top:10px">Your choice will be remembered on this device until you clear cookies.</p>
-    </div>
-  </div>
-
+  <!-- COOKIE BANNER STARTS HERE (Part 2 will continue) -->
   <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
-    <div class="cookie-row">
-      <p>
-        We use essential cookies to operate this site and may use simple analytics to improve content.
-        By clicking Accept you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
-      </p>
-      <div class="cookie-actions">
-        <button class="btn small outline" id="cookieReject">Reject</button>
-        <button class="btn small" id="cookieAccept">Accept</button>
-      </div>
+    <p>
+      We use essential cookies to operate this website and may use analytics to improve your experience. 
+      By clicking <strong>“Accept Cookies”</strong>, you agree to our 
+      <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="btn small outline" id="cookieReject">Decline</button>
+      <button class="btn small" id="cookieAccept">Accept Cookies</button>
     </div>
   </div>
 
@@ -244,34 +213,8 @@
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // LocalStorage Keys
-    const KEY_GATE   = 'sv_gate_ok';            // 'yes'
-    const KEY_COOKIE = 'sv_cookie_choice';      // 'accept' | 'reject'
+    const KEY_COOKIE = 'sv_cookie_choice';
 
-    // 18+ / Information Gate
-    (function setupGate(){
-      const gate = document.getElementById('ageGate');
-      const accept = document.getElementById('gateAccept');
-      const more = document.getElementById('gateMore');
-      try{
-        const ok = localStorage.getItem(KEY_GATE) === 'yes';
-        if(!ok){
-          gate.style.display = 'flex';
-        }
-        accept.addEventListener('click', ()=>{
-          localStorage.setItem(KEY_GATE,'yes');
-          gate.style.display = 'none';
-        });
-        more.addEventListener('click', ()=>{
-          window.location.href = 'privacy.html';
-        });
-      }catch(e){
-        // If storage blocked, fail open (no endless modal)
-        gate.style.display = 'none';
-      }
-    })();
-
-    // Cookie Banner
     (function setupCookies(){
       const banner = document.getElementById('cookieBanner');
       const accept = document.getElementById('cookieAccept');
@@ -281,22 +224,11 @@
       function show(){ banner.style.display = 'block'; }
 
       try{
-        const choice = localStorage.getItem(KEY_COOKIE); // 'accept' | 'reject' | null
+        const choice = localStorage.getItem(KEY_COOKIE);
         if(!choice){ show(); }
-        accept.addEventListener('click', ()=>{
-          localStorage.setItem(KEY_COOKIE,'accept');
-          hide();
-          // Place any analytics init here in future, gated behind 'accept'
-          // e.g., if(localStorage.getItem(KEY_COOKIE)==='accept'){ initAnalytics(); }
-        });
-        reject.addEventListener('click', ()=>{
-          localStorage.setItem(KEY_COOKIE,'reject');
-          hide();
-        });
-      }catch(e){
-        // If storage blocked, show once per page load
-        show();
-      }
+        accept.addEventListener('click', ()=>{ localStorage.setItem(KEY_COOKIE,'accept'); hide(); });
+        reject.addEventListener('click', ()=>{ localStorage.setItem(KEY_COOKIE,'reject'); hide(); });
+      }catch(e){ show(); }
     })();
   </script>
 
