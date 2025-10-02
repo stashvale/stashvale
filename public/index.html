@@ -3,44 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stashvale – Financial Information & Guides</title>
-  <meta name="description" content="Plain-English guides on protection, savings and planning. Information only – not financial advice.">
-  <meta name="theme-color" content="#0b1533">
-  <link rel="stylesheet" href="style.css" />
+  <title>Stashvale — Insurance, Investing & Future Planning (Information Only)</title>
+  <meta name="description" content="Stashvale is an independent, information-only resource that explains insurance, investing and future planning in plain English. No regulated advice is provided." />
   <link rel="icon" href="data:,">
-
-  <!-- Basic SEO / Open Graph -->
-  <meta property="og:title" content="Stashvale – Financial Information & Guides">
-  <meta property="og:description" content="Information-only articles on insurance, savings, and planning. No advice.">
-  <meta property="og:type" content="website">
-
-  <!-- Minimal inline styles just for the modal -->
   <style>
-    .sv-modal-backdrop{
-      position:fixed; inset:0; background:rgba(11,21,51,.6);
-      display:none; align-items:center; justify-content:center; z-index:9999;
+    /* ====== Stashvale – Global Styles ====== */
+    :root{
+      --bg:#0b1533; --bg2:#18224a; --txt:#0b1533; --muted:#667085;
+      --brand:#12b886; --brand-2:#0ea371; --surface:#ffffff; --border:#e6e7eb;
+      --radius:12px; --shadow:0 6px 20px rgba(16,24,40,.08);
     }
-    .sv-modal{
-      max-width:560px; width:92%; background:#fff; border-radius:12px;
-      box-shadow:0 12px 40px rgba(0,0,0,.25); padding:24px;
-      color:#0b1533; line-height:1.55;
-    }
-    .sv-modal h3{margin:0 0 10px}
-    .sv-modal p{margin:0 0 14px}
-    .sv-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
-    .sv-btn{
-      display:inline-block; border-radius:8px; padding:12px 16px; font-weight:700;
-      text-decoration:none; border:0; cursor:pointer;
-    }
-    .sv-primary{background:#12b886; color:#fff}
-    .sv-secondary{background:#eef2f7; color:#0b1533}
-    .sv-small{font-size:.9rem; color:#667085}
-    /* Small cards on home */
-    .pill{display:inline-block; padding:4px 10px; border-radius:999px; background:#eef2f7; color:#0b1533; font-weight:600; font-size:.85rem}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--txt);background:#f7f8fb;line-height:1.55}
+
+    .container{max-width:1080px;margin:auto;padding:24px}
+    .page{margin:24px auto;max-width:1080px}
+
+    /* Header */
+    header.site{background:linear-gradient(135deg,var(--bg) 0%, var(--bg2) 100%);color:#fff;box-shadow:var(--shadow)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:28px;letter-spacing:.2px}
+    nav a{color:#ccd3ff;text-decoration:none;margin-right:18px;font-weight:600}
+    nav a:hover, nav a.active{color:#fff}
+
+    /* Sections */
+    .section{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:24px 0}
+    h2{margin:0 0 12px}
+    .lead{color:var(--muted);font-size:18px;margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-weight:700;margin-top:12px}
+    .btn:hover{background:var(--brand-2)}
+
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:1fr}
+    @media(min-width:800px){ .cols-3{grid-template-columns:repeat(3,1fr)} }
+
+    .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px}
+
+    /* How it works mini-steps */
+    .steps{display:grid;gap:16px}
+    @media(min-width:800px){ .steps{grid-template-columns:repeat(3,1fr)} }
+    .step{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px}
+
+    /* Footer */
+    footer.site{border-top:1px solid var(--border);background:#fff;color:var(--muted)}
+    footer a{color:#0f1a3d;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    footer .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+    /* Newsletter */
+    form{display:grid;gap:12px}
+    label{font-weight:600}
+    input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;font:inherit}
+    .consents{font-size:.95rem}
+    .consents label{font-weight:normal}
+
+    /* 18+ / Info Gate (modal) */
+    .gate-wrap{position:fixed;inset:0;background:rgba(11,21,51,.55);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
+    .gate{max-width:560px;background:#fff;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow);padding:24px}
+    .gate h3{margin:0 0 8px}
+    .gate p{margin:0 0 12px}
+    .gate .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+
+    /* Cookie Banner (bottom) */
+    .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;background:#ffffff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;padding:14px 16px;display:none;z-index:9998}
+    .cookie-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .cookie-row p{margin:0;flex:1;color:#3a3f55}
+    .cookie-row a{color:#0b4ad8;text-decoration:none}
+    .cookie-row a:hover{text-decoration:underline}
+    .cookie-actions{display:flex;gap:8px}
+    .btn.outline{background:#fff;color:#0b1533;border:1px solid var(--border)}
+    .btn.small{padding:8px 12px;font-weight:700}
+
+    /* Small print helper */
+    .small{font-size:.9rem}
   </style>
 </head>
-
 <body>
+
   <!-- Header -->
   <header class="site">
     <div class="container">
@@ -49,7 +91,7 @@
         <a class="active" href="index.html">Home</a>
         <a href="insurance-cover.html">Insurance & Cover</a>
         <a href="investments-savings.html">Investments & Savings</a>
-        <a href="planning.html">Planning</a>
+        <a href="future-planning.html">Future Planning</a>
         <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -57,90 +99,103 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <main class="container">
-    <section class="hero">
-      <span class="pill">Information only</span>
-      <h2 style="margin-top:10px">Clear, no-jargon guides to protection, savings & planning</h2>
-      <p class="lead">Stashvale publishes plain-English explanations to help you understand financial topics. This site provides <strong>information only</strong> and <strong>does not offer financial advice</strong>.</p>
-      <div style="margin-top:12px">
-        <a class="btn" href="insurance-cover.html">Explore Insurance & Cover</a>
-        <a class="btn" href="investments-savings.html" style="margin-left:8px">Explore Investments & Savings</a>
-        <a class="btn" href="planning.html" style="margin-left:8px">Explore Planning</a>
+  <main class="container page">
+
+    <!-- About Stashvale (Version B) -->
+    <section class="section" aria-labelledby="about-title">
+      <h2 id="about-title">Welcome to Stashvale</h2>
+      <p class="lead">
+        Stashvale is a resource designed to help you make more confident decisions about
+        insurance, saving, investing and future planning — all explained in plain English.
+      </p>
+      <p class="muted small">
+        We provide information and education only and do not provide regulated financial advice.
+        Rules, allowances and tax treatments can change. Consider seeking regulated advice before acting.
+      </p>
+    </section>
+
+    <!-- How Stashvale Works -->
+    <section class="section" aria-labelledby="works-title">
+      <h2 id="works-title">How Stashvale Works</h2>
+      <div class="steps">
+        <div class="step">
+          <strong>1) Choose a topic</strong>
+          <p class="muted small">Pick Insurance & Cover, Investments & Savings, or Future Planning.</p>
+        </div>
+        <div class="step">
+          <strong>2) Read a guide</strong>
+          <p class="muted small">Clear, practical explanations (no advice) to build your understanding.</p>
+        </div>
+        <div class="step">
+          <strong>3) Stay informed</strong>
+          <p class="muted small">Sign up for new guides and updates by email (optional).</p>
+        </div>
       </div>
-      <p class="sv-small" style="margin-top:10px">Content is based on current rules and may change in the future.</p>
     </section>
 
-    <!-- Quick sections -->
-    <section class="grid cols-3">
-      <article class="card">
-        <h3>Insurance & Cover</h3>
-        <p>Life insurance, income protection, critical illness, family income benefit, whole of life & business protection.</p>
-        <a class="btn" href="insurance-cover.html">Explore</a>
-      </article>
-
-      <article class="card">
-        <h3>Investments & Savings</h3>
-        <p>Stocks & Shares ISA, Cash ISA, Lifetime ISA, Junior ISA, GIA and pensions (SIPP) explained in plain English.</p>
-        <a class="btn" href="investments-savings.html">Explore</a>
-      </article>
-
-      <article class="card">
-        <h3>Planning</h3>
-        <p>Foundations like emergency funds, budgeting basics, and high-level estate/inheritance tax concepts.</p>
-        <a class="btn" href="planning.html">Explore</a>
-      </article>
-    </section>
-
-    <!-- Latest Insights (link through to your category pages or individual blogs as you add them) -->
-    <section class="page">
-      <h3>Latest insights</h3>
+    <!-- Explore cards -->
+    <section class="section" aria-labelledby="explore-title">
+      <h2 id="explore-title">Explore Topics</h2>
       <div class="grid cols-3">
         <article class="card">
-          <h4><a href="life-insurance.html">Life Insurance – Basics & Types</a></h4>
-          <p class="muted">Level vs. decreasing vs. family income benefit, in plain English (information only).</p>
+          <h3>Insurance & Cover</h3>
+          <p class="muted">Learn how life insurance, income protection, critical illness and more work.</p>
+          <a class="btn" href="insurance-cover.html">Explore Insurance & Cover</a>
         </article>
         <article class="card">
-          <h4><a href="income-protection.html">Income Protection – How it works</a></h4>
-          <p class="muted">What IP covers, typical waiting periods and terms (no advice).</p>
+          <h3>Investments & Savings</h3>
+          <p class="muted">Understand ISAs, pensions (SIPPs), tax-efficient saving and long-term planning.</p>
+          <a class="btn" href="investments-savings.html">Explore Investments & Savings</a>
         </article>
         <article class="card">
-          <h4><a href="stocks-shares-isa.html">Stocks & Shares ISA – Overview</a></h4>
-          <p class="muted">Tax-efficient investing wrapper explained at a high level (rules may change).</p>
+          <h3>Future Planning</h3>
+          <p class="muted">Read about wills, IHT basics, budgeting and preparing for life milestones.</p>
+          <a class="btn" href="future-planning.html">Explore Future Planning</a>
         </article>
       </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="page card">
-      <h3>Stay informed (newsletter)</h3>
-      <p class="muted">Get an email when we publish new blogs, guides or articles. All content is for <strong>information only</strong> and <strong>not financial advice</strong>.</p>
+    <!-- Latest Guides (safe links to category pages so nothing 404s) -->
+    <section class="section" aria-labelledby="latest-title">
+      <h2 id="latest-title">Latest Guides</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3 class="small" style="margin-bottom:6px">Insurance</h3>
+          <p class="muted small">Life Insurance, Income Protection, Critical Illness & more.</p>
+          <a class="btn" href="insurance-cover.html">View Insurance Guides</a>
+        </article>
+        <article class="card">
+          <h3 class="small" style="margin-bottom:6px">Investing & Saving</h3>
+          <p class="muted small">Stocks & Shares ISA, Cash ISA, LISA, GIA, SIPPs.</p>
+          <a class="btn" href="investments-savings.html">View Saving & Investing Guides</a>
+        </article>
+        <article class="card">
+          <h3 class="small" style="margin-bottom:6px">Future Planning</h3>
+          <p class="muted small">Estate planning and getting organised for the long term.</p>
+          <a class="btn" href="future-planning.html">View Future Planning Guides</a>
+        </article>
+      </div>
+    </section>
 
-      <!-- Netlify newsletter form -->
-      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="stack">
-        <!-- Netlify requirements -->
-        <input type="hidden" name="form-name" value="newsletter">
-        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
-
-        <label for="subEmail">Email *</label>
-        <input id="subEmail" name="email" type="email" autocomplete="email" required>
-
-        <!-- REQUIRED consent to receive emails (specific, separate consent) -->
-        <label>
-          <input type="checkbox" name="consent_email" required>
-          I consent to receive occasional email updates from <strong>Stashvale</strong>. I understand all content is for <strong>information only</strong> and <strong>not financial advice</strong>. I can unsubscribe at any time.
-        </label>
-
-        <!-- Optional marketing tick if you want it distinct -->
-        <label>
-          <input type="checkbox" name="marketing_opt_in">
-          I’m happy to receive occasional news about new pages or features.
-        </label>
-
-        <button type="submit" class="btn">Subscribe</button>
-        <p class="sv-small">We handle your data per our <a href="privacy.html">Privacy Policy</a>.</p>
+    <!-- Newsletter (info-only) -->
+    <section class="section" aria-labelledby="news-title">
+      <h2 id="news-title">Get new guides by email</h2>
+      <p class="muted small">Optional. We’ll only send occasional updates. You can opt out any time.</p>
+      <!-- Replace action with Formspree/Netlify when ready -->
+      <form action="https://formspree.io/f/your-id" method="POST" novalidate>
+        <div>
+          <label for="subEmail">Email</label>
+          <input id="subEmail" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="consents">
+          <label><input type="checkbox" name="marketing_opt_in" required> I agree to receive occasional updates by email.</label>
+          <label><input type="checkbox" name="info_only_ack" required> I understand content is information only and not financial advice.</label>
+        </div>
+        <button class="btn" type="submit">Subscribe</button>
+        <p class="muted small">We handle your data in line with our <a href="privacy.html">Privacy Policy</a>.</p>
       </form>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -150,19 +205,37 @@
       <div><a href="privacy.html">Privacy</a></div><div>·</div>
       <div><a href="terms.html">Terms</a></div>
       <div style="flex:1"></div>
-      <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
+      <div class="small" aria-live="polite">
+        Stashvale provides information only and does not offer regulated financial advice. Consider seeking regulated advice before making decisions.
+      </div>
     </div>
   </footer>
 
-  <!-- 18+ / Information-only modal -->
-  <div id="svGate" class="sv-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="svGateTitle">
-    <div class="sv-modal">
-      <h3 id="svGateTitle">Before you continue</h3>
-      <p>By continuing, you confirm you are <strong>18 or over</strong> and you understand that <strong>Stashvale provides information only and does not offer financial advice</strong>.</p>
-      <p class="sv-small">Content is for education and general information. Rules and allowances can change.</p>
-      <div class="sv-actions">
-        <button id="svAgree" class="sv-btn sv-primary">Yes — I’m 18+ and understand</button>
-        <button id="svExit" class="sv-btn sv-secondary" type="button">Exit site</button>
+  <!-- 18+ / Information-only Gate -->
+  <div class="gate-wrap" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
+    <div class="gate">
+      <h3 id="gateTitle">Before you continue</h3>
+      <p id="gateDesc" class="muted small">
+        Please confirm you are 18+ and understand this website provides information only and does not offer regulated financial advice.
+      </p>
+      <div class="actions">
+        <button class="btn" id="gateAccept">Yes, I’m 18+ and I understand</button>
+        <button class="btn outline" id="gateMore">Read our Privacy & Terms</button>
+      </div>
+      <p class="muted small" style="margin-top:10px">Your choice will be remembered on this device until you clear cookies.</p>
+    </div>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+    <div class="cookie-row">
+      <p>
+        We use essential cookies to operate this site and may use simple analytics to improve content.
+        By clicking Accept you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+      </p>
+      <div class="cookie-actions">
+        <button class="btn small outline" id="cookieReject">Reject</button>
+        <button class="btn small" id="cookieAccept">Accept</button>
       </div>
     </div>
   </div>
@@ -171,43 +244,60 @@
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Gatekeeper modal (session-based)
-    (function(){
+    // LocalStorage Keys
+    const KEY_GATE   = 'sv_gate_ok';            // 'yes'
+    const KEY_COOKIE = 'sv_cookie_choice';      // 'accept' | 'reject'
+
+    // 18+ / Information Gate
+    (function setupGate(){
+      const gate = document.getElementById('ageGate');
+      const accept = document.getElementById('gateAccept');
+      const more = document.getElementById('gateMore');
       try{
-        var agreed = sessionStorage.getItem('svConsent');
-        var gate = document.getElementById('svGate');
-        var agreeBtn = document.getElementById('svAgree');
-        var exitBtn = document.getElementById('svExit');
+        const ok = localStorage.getItem(KEY_GATE) === 'yes';
+        if(!ok){
+          gate.style.display = 'flex';
+        }
+        accept.addEventListener('click', ()=>{
+          localStorage.setItem(KEY_GATE,'yes');
+          gate.style.display = 'none';
+        });
+        more.addEventListener('click', ()=>{
+          window.location.href = 'privacy.html';
+        });
+      }catch(e){
+        // If storage blocked, fail open (no endless modal)
+        gate.style.display = 'none';
+      }
+    })();
 
-        function show(){ gate.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-        function hide(){ gate.style.display = 'none'; document.body.style.overflow = ''; }
+    // Cookie Banner
+    (function setupCookies(){
+      const banner = document.getElementById('cookieBanner');
+      const accept = document.getElementById('cookieAccept');
+      const reject = document.getElementById('cookieReject');
 
-        if(!agreed){ show(); }
+      function hide(){ banner.style.display = 'none'; }
+      function show(){ banner.style.display = 'block'; }
 
-        agreeBtn.addEventListener('click', function(){
-          sessionStorage.setItem('svConsent', 'yes');
+      try{
+        const choice = localStorage.getItem(KEY_COOKIE); // 'accept' | 'reject' | null
+        if(!choice){ show(); }
+        accept.addEventListener('click', ()=>{
+          localStorage.setItem(KEY_COOKIE,'accept');
+          hide();
+          // Place any analytics init here in future, gated behind 'accept'
+          // e.g., if(localStorage.getItem(KEY_COOKIE)==='accept'){ initAnalytics(); }
+        });
+        reject.addEventListener('click', ()=>{
+          localStorage.setItem(KEY_COOKIE,'reject');
           hide();
         });
-        exitBtn.addEventListener('click', function(){
-          window.location.href = 'https://www.google.com';
-        });
-      }catch(e){ /* if storage blocked, fail closed and show modal */ }
+      }catch(e){
+        // If storage blocked, show once per page load
+        show();
+      }
     })();
-  </script><!-- Global cookie banner loader -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Add CSS
-    var css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "cookie-consent.css";
-    document.head.appendChild(css);
-
-    // Add JS
-    var js = document.createElement("script");
-    js.src = "cookie-consent.js";
-    document.body.appendChild(js);
-  });
-</script>
-
+  </script>
 </body>
 </html>
