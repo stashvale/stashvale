@@ -3,58 +3,228 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Planning & Future – Stashvale</title>
-  <meta name="description" content="High-level guides on mortgages (info only), Help to Buy, and inheritance tax planning. Educational content only.">
-  <link rel="stylesheet" href="style.css" />
+  <title>Planning & Future – Stashvale (Information Only)</title>
+  <meta name="description" content="Plain-English, information-only guides on wills & estates, inheritance tax, power of attorney, budgeting, retirement basics, mortgages & property, and home ownership schemes. Not advice." />
   <link rel="icon" href="data:,">
+  <style>
+    /* ====== Stashvale – Global Styles ====== */
+    :root{
+      --bg:#0b1533; --bg2:#18224a; --txt:#0b1533; --muted:#667085;
+      --brand:#12b886; --brand-2:#0ea371; --surface:#ffffff; --border:#e6e7eb;
+      --radius:12px; --shadow:0 6px 20px rgba(16,24,40,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--txt);background:#f7f8fb;line-height:1.55}
+
+    .container{max-width:1080px;margin:auto;padding:24px}
+    .page{margin:24px auto;max-width:1080px}
+
+    /* Header */
+    header.site{background:linear-gradient(135deg,var(--bg) 0%, var(--bg2) 100%);color:#fff;box-shadow:var(--shadow)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:28px;letter-spacing:.2px}
+    nav a{color:#ccd3ff;text-decoration:none;margin-right:18px;font-weight:600}
+    nav a:hover, nav a.active{color:#fff}
+
+    /* Sections & cards */
+    .section{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:24px 0}
+    h1,h2{margin:0 0 12px}
+    .lead{color:var(--muted);font-size:18px;margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .small{font-size:.9rem}
+    .note{background:#fff7e5;border:1px solid #ffe1a6;border-radius:10px;padding:12px;margin:12px 0}
+
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:1fr}
+    @media(min-width:800px){ .cols-3{grid-template-columns:repeat(3,1fr)} }
+
+    .card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-weight:700;margin-top:12px}
+    .btn:hover{background:var(--brand-2)}
+
+    /* Cookie Banner (centred card) */
+    .cookie-banner{
+      position:fixed; left:50%; bottom:15%; transform:translateX(-50%);
+      width:90%; max-width:500px; background:#ffffff; border:1px solid var(--border);
+      box-shadow:var(--shadow); border-radius:14px; padding:20px; display:none;
+      z-index:9998; text-align:center
+    }
+    .cookie-banner p{margin:0 0 14px;color:#3a3f55;font-size:0.95rem;}
+    .cookie-banner a{color:#0b4ad8;text-decoration:none}
+    .cookie-banner a:hover{text-decoration:underline}
+    .cookie-actions{display:flex;justify-content:center;gap:10px;margin-top:10px;}
+    .btn.outline{background:#fff;color:#0b1533;border:1px solid var(--border)}
+    .btn.small{padding:10px 16px;font-weight:700;border-radius:8px}
+
+    /* Footer */
+    footer.site{border-top:1px solid var(--border);background:#fff;color:var(--muted)}
+    footer a{color:#0f1a3d;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    footer .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  </style>
 </head>
 <body>
-<header class="site">
-  <div class="container">
-    <div class="brand"><h1>Stashvale</h1></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
+
+  <!-- Header -->
+  <header class="site">
+    <div class="container">
+      <div class="brand"><h1>Stashvale</h1></div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="insurance-cover.html">Insurance & Cover</a>
+        <a href="investments-savings.html">Investments & Savings</a>
+        <a class="active" href="planning-future.html">Future Planning</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <!-- Intro + compliance note -->
+    <section class="section" aria-labelledby="pf-title">
+      <h1 id="pf-title">Planning &amp; Future</h1>
+      <p class="lead">Plain-English explanations to help you understand common planning topics. This page is general information only — not advice or a personal recommendation.</p>
+      <div class="note" role="note">
+        <strong>Important:</strong> Rules, allowances and legislation may change and their impact depends on individual circumstances. Consider seeking regulated financial advice or legal/tax guidance before making decisions.
+      </div>
+    </section>
+
+    <!-- Row 1 -->
+    <section class="section" aria-labelledby="row1">
+      <h2 id="row1" class="small" style="letter-spacing:.3px">Legal &amp; Estate</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Wills &amp; Estate Basics</h3>
+          <p class="muted small">What a will does, how executors/beneficiaries fit in, and how wills link to wider estate planning. Neutral overview only.</p>
+          <a class="btn" href="wills.html">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Inheritance Tax (IHT) Basics</h3>
+          <p class="muted small">High-level concepts around thresholds and allowances. Tax rules can change and outcomes depend on circumstances.</p>
+          <a class="btn" href="iht.html">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Power of Attorney</h3>
+          <p class="muted small">Overview of lasting powers of attorney (LPA), attorneys’ roles, and typical considerations. Information-only.</p>
+          <a class="btn" href="power-of-attorney.html">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Row 2 -->
+    <section class="section" aria-labelledby="row2">
+      <h2 id="row2" class="small" style="letter-spacing:.3px">Money &amp; Day-to-Day</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Budgeting &amp; Planning</h3>
+          <p class="muted small">Neutral principles for tracking income/expenses, building buffers, and planning ahead without product recommendations.</p>
+          <a class="btn" href="budgeting-basics.html">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Retirement Overview</h3>
+          <p class="muted small">How pensions generally work (state vs private), tax relief concepts, and timelines — explained in plain English.</p>
+          <a class="btn" href="retirement-planning-basics.html">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Mortgage &amp; Property Planning</h3>
+          <p class="muted small">Key terms (LTV, repayment vs interest-only), typical stages, and the role of lenders/solicitors. No recommendations.</p>
+          <a class="btn" href="mortgages.html">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Row 3 -->
+    <section class="section" aria-labelledby="row3">
+      <h2 id="row3" class="small" style="letter-spacing:.3px">Home Ownership Options</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Help to Buy &amp; Schemes</h3>
+          <p class="muted small">Neutral overview of how common schemes have generally worked and typical eligibility concepts. Rules can change.</p>
+          <a class="btn" href="help-to-buy.html">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Trusts (Information-Only)</h3>
+          <p class="muted small">What a trust is, common types and roles (settlors, trustees, beneficiaries). For general understanding only.</p>
+          <a class="btn" href="trusts.html">Read more</a>
+        </article>
+        <article class="card">
+          <h3>Equity Release (Info-Only)</h3>
+          <p class="muted small">Plain-English explanation of how equity release generally works and typical considerations. Not a recommendation.</p>
+          <a class="btn" href="equity-release-info.html">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Optional newsletter (keeps pages consistent) -->
+    <section class="section" aria-labelledby="news-title">
+      <h2 id="news-title">Get new guides by email</h2>
+      <p class="muted small">Optional. We’ll only send occasional updates. You can opt out any time.</p>
+      <form action="https://formspree.io/f/your-id" method="POST" novalidate>
+        <div>
+          <label for="subEmail">Email</label>
+          <input id="subEmail" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="consents">
+          <label><input type="checkbox" name="marketing_opt_in" required> I agree to receive occasional updates by email.</label>
+          <label><input type="checkbox" name="info_only_ack" required> I understand content is information only and not financial advice.</label>
+        </div>
+        <button class="btn" type="submit">Subscribe</button>
+        <p class="muted small">We handle your data in line with our <a href="privacy.html">Privacy Policy</a>.</p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site">
+    <div class="container row">
+      <div>© <span id="y"></span> Stashvale</div><div>·</div>
+      <div><a href="privacy.html">Privacy</a></div><div>·</div>
+      <div><a href="terms.html">Terms</a></div>
+      <div style="flex:1"></div>
+      <div class="small" aria-live="polite">
+        Stashvale provides information only and does not offer regulated financial advice. Consider seeking regulated advice before making decisions.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+    <p>
+      We use essential cookies to operate this website and may use analytics to improve your experience.
+      By clicking <strong>“Accept Cookies”</strong>, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="btn small outline" id="cookieReject">Decline</button>
+      <button class="btn small" id="cookieAccept">Accept Cookies</button>
+    </div>
   </div>
-</header>
 
-<main class="container page">
-  <h2>Planning & Future</h2>
-  <p class="lead">General information to help you understand common planning topics. This page is educational only.</p>
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-  <section class="grid cols-3">
-    <article class="card">
-      <h3>Mortgage Information</h3>
-      <p>Plain-English explanations of terms and steps. No recommendations.</p>
-      <a class="btn" href="mortgages.html">Read guides</a>
-    </article>
+    // Cookie banner logic (accept/reject persisted)
+    const KEY_COOKIE = 'sv_cookie_choice';
+    (function setupCookies(){
+      const banner = document.getElementById('cookieBanner');
+      const accept = document.getElementById('cookieAccept');
+      const reject = document.getElementById('cookieReject');
 
-    <article class="card">
-      <h3>Help to Buy</h3>
-      <p>High-level overview of schemes and typical eligibility rules.</p>
-      <a class="btn" href="help-to-buy.html">Read guides</a>
-    </article>
+      function hide(){ banner.style.display = 'none'; }
+      function show(){ banner.style.display = 'block'; }
 
-    <article class="card">
-      <h3>Inheritance Tax (IHT) Planning</h3>
-      <p>Basics on thresholds, allowances and common concepts.</p>
-      <a class="btn" href="iht.html">Read guides</a>
-    </article>
-  </section>
-</main>
+      try{
+        const choice = localStorage.getItem(KEY_COOKIE);
+        if(!choice){ show(); }
+        accept.addEventListener('click', ()=>{ localStorage.setItem(KEY_COOKIE,'accept'); hide(); });
+        reject.addEventListener('click', ()=>{ localStorage.setItem(KEY_COOKIE,'reject'); hide(); });
+      }catch(e){ show(); }
+    })();
+  </script>
 
-<footer class="site">
-  <div class="container row">
-    <div>© <span id="y"></span> Stashvale</div><div>·</div>
-    <div><a href="privacy.html">Privacy</a></div><div>·</div>
-    <div><a href="terms.html">Terms</a></div>
-    <div style="flex:1"></div>
-    <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
-  </div>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
