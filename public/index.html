@@ -194,40 +194,62 @@
       </div>
     </div>
   </footer>
-
-  <!-- COOKIE BANNER STARTS HERE (Part 2 will continue) -->
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
-    <p>
-      We use essential cookies to operate this website and may use analytics to improve your experience. 
-      By clicking <strong>“Accept Cookies”</strong>, you agree to our 
-      <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
-    </p>
-    <div class="cookie-actions">
-      <button class="btn small outline" id="cookieReject">Decline</button>
-      <button class="btn small" id="cookieAccept">Accept Cookies</button>
-    </div>
+<!-- ✅ Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+  <p>
+    We use essential cookies to operate this website and may use analytics to improve your experience.
+    By clicking <strong>“Accept Cookies”</strong>, you agree to our 
+    <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn small outline" id="cookieReject">Decline</button>
+    <button class="btn small" id="cookieAccept">Accept Cookies</button>
   </div>
+</div>
 
-  <script>
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+<script>
+  const KEY_COOKIE = 'sv_cookie_choice';
+  const banner = document.getElementById('cookieBanner');
+  const accept = document.getElementById('cookieAccept');
+  const reject = document.getElementById('cookieReject');
 
-    const KEY_COOKIE = 'sv_cookie_choice';
+  function hideBanner(){ banner.style.display = 'none'; }
+  function showBanner(){ banner.style.display = 'block'; }
 
-    (function setupCookies(){
-      const banner = document.getElementById('cookieBanner');
-      const accept = document.getElementById('cookieAccept');
-      const reject = document.getElementById('cookieReject');
+  function loadTawk(){
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),
+          s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68de753d32ab2019572623eb/1j6ifjtsp';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  }
 
-      function hide(){ banner.style.display = 'none'; }
-      function show(){ banner.style.display = 'block'; }
+  (function(){
+    try {
+      const choice = localStorage.getItem(KEY_COOKIE);
+      if(!choice){ showBanner(); }
+      else if(choice === 'accept'){ loadTawk(); }
 
-      try{
-        const choice = localStorage.getItem(KEY_COOKIE);
-        if(!choice){ show(); }
-        accept.addEventListener('click', ()=>{ localStorage.setItem(KEY_COOKIE,'accept'); hide(); });
-        reject.addEventListener('click', ()=>{ localStorage.setItem(KEY_COOKIE,'reject'); hide(); });
-     
+      accept.addEventListener('click', ()=> {
+        localStorage.setItem(KEY_COOKIE, 'accept');
+        loadTawk();
+        hideBanner();
+      });
+
+      reject.addEventListener('click', ()=> {
+        localStorage.setItem(KEY_COOKIE, 'reject');
+        hideBanner();
+      });
+    } catch(e) {
+      showBanner();
+    }
+  })();
+</script>
+    
 </body>
 </html>
