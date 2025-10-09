@@ -36,16 +36,11 @@
     <h3>Key Types</h3>
     <ul>
       <li><strong>Level term:</strong> The payout amount (the “sum assured”) stays the same throughout the chosen term. Commonly used to provide a fixed amount for beneficiaries or to help with general liabilities that do not reduce in a straight line.</li>
-
       <li><strong>Decreasing term:</strong> The payout typically reduces over time in line with a chosen reduction pattern. Often used alongside repayment mortgages so that the cover broadly declines as the mortgage balance reduces.</li>
-
       <li><strong>Family Income Benefit (FIB):</strong> Instead of a single lump sum, this pays a regular benefit (for example, monthly) from the date of claim until the end of the remaining term. This can help provide an income-style benefit but is different from a salary and stops when the term ends.</li>
-
       <li><strong>Whole of Life (lifetime cover):</strong> Designed to continue for life rather than a fixed term. Premiums are usually higher than term insurance. Some people use lifetime cover for long-term needs (for example, to help with estate planning objectives) — suitability is personal and often needs regulated advice.</li>
-
       <li><strong>Index-linked options:</strong> Some policies allow the sum assured and premium to increase periodically (for example, with an index) to help maintain purchasing power. This can mean premiums rise over time.</li>
     </ul>
-
     <p class="help">
       Premiums are generally influenced by: age, sum assured, term length, smoker status, medical history and underwriting outcomes, plus any options such as indexation. 
       Policies are usually underwritten by the insurer, which may involve medical questions and, in some cases, further evidence.
@@ -56,26 +51,16 @@
     <h3>Things to Consider (Information Only)</h3>
     <ul>
       <li><strong>Benefit style:</strong> Decide whether you want a single lump sum or an income-style benefit (for example, via Family Income Benefit). Each behaves differently at claim.</li>
-
       <li><strong>Term & purpose:</strong> Many people align the term with a foreseeable need (for example, a mortgage term or an estimated period of financial dependence). Shorter or longer terms will affect premium and cover duration.</li>
-
       <li><strong>Single or joint policy:</strong> Policies can be on a single-life basis or joint basis. Joint policies are commonly “first-death” (paying once on the first partner’s death) but structures vary. Check the wording carefully.</li>
-
       <li><strong>Trusts & beneficiaries:</strong> Placing a policy in a suitable trust can help benefits be paid to the intended recipients and may help with speed of payment and estate administration. Trusts are legal arrangements with responsibilities; consider legal or regulated advice if unsure.</li>
-
       <li><strong>Indexation & real value:</strong> Fixed cover can lose purchasing power over time. Index-linked policies and/or periodic reviews may help keep amounts broadly aligned with needs, but will usually increase premiums.</li>
-
       <li><strong>Underwriting & disclosure:</strong> Applications normally require accurate and complete health and lifestyle information. Non-disclosure can affect cover or claims. If you are uncertain how to answer, ask the insurer or an adviser.</li>
-
       <li><strong>Affordability & continuity:</strong> Missing premiums can lead to lapse or reduced cover (depending on the policy). Check how cancellations, grace periods and reinstatement work in your policy documents.</li>
-
       <li><strong>Claims & documentation:</strong> Executors/beneficiaries are usually asked for evidence such as a death certificate and policy documents. Timescales vary by insurer and circumstances.</li>
-
       <li><strong>Tax position (general):</strong> Payouts are not usually subject to UK income tax, but can form part of an estate for inheritance tax purposes unless arranged otherwise (for example, via a suitable trust). Tax treatment depends on individual circumstances and law at the time.</li>
-
       <li><strong>Reviews over time:</strong> People often review cover after life events (for example, marriage/civil partnership, children, new mortgage, separation, change of income or health). Adjustments might require new underwriting.</li>
     </ul>
-
     <p class="help">
       This section is a neutral overview. Policy features, charges, definitions and exclusions vary by insurer and can change, and legislation may change over time. 
       Consider seeking regulated financial advice or legal/tax guidance if you need personal recommendations or help choosing a structure.
@@ -90,12 +75,10 @@
         <h4><a href="blog-life-how-it-works.html">How Life Insurance Works</a></h4>
         <p class="muted">A practical overview of application and underwriting steps, premium types, and what typically happens at claim.</p>
       </article>
-
       <article class="card">
         <h4><a href="blog-life-when-to-review.html">When Should You Review Your Policy?</a></h4>
         <p class="muted">Common life events that prompt people to check cover and why terms and needs can change over time.</p>
       </article>
-
       <article class="card">
         <h4><a href="blog-life-common-mistakes.html">Common Mistakes to Avoid</a></h4>
         <p class="muted">Examples include under-estimating cover, mismatching term to need, and not considering beneficiary arrangements.</p>
@@ -128,6 +111,69 @@
     <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
   </div>
 </footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<!-- ✅ Cookie Banner with Age Confirmation & Consent -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+  <p>
+    You must be <strong>18 or over</strong> to use this site.  
+    We use essential cookies to operate this website and may use analytics to improve your experience.  
+    By clicking <strong>“Accept Cookies”</strong>, you confirm that you are 18+ and agree to our 
+    <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn small outline" id="cookieReject">Decline</button>
+    <button class="btn small" id="cookieAccept">Accept Cookies</button>
+  </div>
+</div>
+
+<script>
+  // Footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // =====================================
+  // ✅ Cookie Banner + 18+ Age Notice + Tawk.to Loader
+  // =====================================
+  const KEY_COOKIE = 'sv_cookie_choice';
+  const banner = document.getElementById('cookieBanner');
+  const accept = document.getElementById('cookieAccept');
+  const reject = document.getElementById('cookieReject');
+
+  function hideBanner(){ banner.style.display = 'none'; }
+  function showBanner(){ banner.style.display = 'block'; }
+
+  function loadTawk(){
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),
+          s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68de753d32ab2019572623eb/1j6ifjtsp';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  }
+
+  (function(){
+    try {
+      const choice = localStorage.getItem(KEY_COOKIE);
+      if(!choice){ showBanner(); }
+      else if(choice === 'accept'){ loadTawk(); }
+
+      accept.addEventListener('click', ()=> {
+        localStorage.setItem(KEY_COOKIE, 'accept');
+        loadTawk();
+        hideBanner();
+      });
+
+      reject.addEventListener('click', ()=> {
+        localStorage.setItem(KEY_COOKIE, 'reject');
+        hideBanner();
+      });
+    } catch(e) {
+      showBanner();
+    }
+  })();
+</script>
 </body>
 </html>
