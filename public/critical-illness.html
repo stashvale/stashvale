@@ -29,7 +29,7 @@
   <p class="lead">
     Critical illness cover pays a lump sum if you’re diagnosed with a serious condition that meets your policy’s definition.
     It can help with treatment costs, changes to work, or covering bills while you recover.
-    <strong>Information only — not financial advice.</strong>
+    <strong>Information only — not financial advice. Products, rules and tax treatment can change.</strong>
   </p>
 
   <section class="card">
@@ -74,6 +74,7 @@
   </section>
 
   <section>
+    <p class="muted small"><em>Additional information and general education — not personal advice. Over 18s only.</em></p>
     <h3>Latest Critical Illness Guides</h3>
     <div class="grid cols-3">
       <article class="card">
@@ -94,7 +95,6 @@
   <section class="card">
     <h3>Stay Updated</h3>
     <p class="muted">Want an email when new CI guides are published? Enter your email below (optional):</p>
-    <!-- You can switch to Netlify Forms or your newsletter tool later -->
     <form action="https://formspree.io/f/your-id" method="POST" class="stack">
       <label for="subEmailCI">Email</label>
       <input id="subEmailCI" name="email" type="email" required>
@@ -106,7 +106,7 @@
     </form>
   </section>
 
-  <p class="help">General information only. It is not a recommendation or personal advice.</p>
+  <p class="help">General information only. It is not a recommendation or personal advice. Over 18s only.</p>
 </main>
 
 <footer class="site">
@@ -118,6 +118,64 @@
     <div><a href="mailto:info.stashvale@gmail.com">info.stashvale@gmail.com</a></div>
   </div>
 </footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<!-- ✅ Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+  <p>
+    We use essential cookies to operate this website and may use analytics to improve your experience.
+    By clicking <strong>“Accept Cookies”</strong>, you agree to our 
+    <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn small outline" id="cookieReject">Decline</button>
+    <button class="btn small" id="cookieAccept">Accept Cookies</button>
+  </div>
+</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  const KEY_COOKIE = 'sv_cookie_choice';
+  const banner = document.getElementById('cookieBanner');
+  const accept = document.getElementById('cookieAccept');
+  const reject = document.getElementById('cookieReject');
+
+  function hideBanner(){ banner.style.display = 'none'; }
+  function showBanner(){ banner.style.display = 'block'; }
+
+  function loadTawk(){
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),
+          s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68de753d32ab2019572623eb/1j6ifjtsp';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  }
+
+  (function(){
+    try {
+      const choice = localStorage.getItem(KEY_COOKIE);
+      if(!choice){ showBanner(); }
+      else if(choice === 'accept'){ loadTawk(); }
+
+      accept.addEventListener('click', ()=> {
+        localStorage.setItem(KEY_COOKIE, 'accept');
+        loadTawk();
+        hideBanner();
+      });
+
+      reject.addEventListener('click', ()=> {
+        localStorage.setItem(KEY_COOKIE, 'reject');
+        hideBanner();
+      });
+    } catch(e) {
+      showBanner();
+    }
+  })();
+</script>
 </body>
 </html>
