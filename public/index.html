@@ -194,11 +194,12 @@
       </div>
     </div>
   </footer>
-<!-- ✅ Cookie Banner -->
+<!-- ✅ Cookie Banner with Age Confirmation & Consent -->
 <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
   <p>
-    We use essential cookies to operate this website and may use analytics to improve your experience.
-    By clicking <strong>“Accept Cookies”</strong>, you agree to our 
+    You must be <strong>18 or over</strong> to use this site.  
+    We use essential cookies to operate this website and may use analytics to improve your experience.  
+    By clicking <strong>“Accept Cookies”</strong>, you confirm that you are 18+ and agree to our 
     <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
   </p>
   <div class="cookie-actions">
@@ -208,6 +209,9 @@
 </div>
 
 <script>
+  // =====================================
+  // ✅ Cookie Banner + 18+ Age Notice + Tawk.to Loader
+  // =====================================
   const KEY_COOKIE = 'sv_cookie_choice';
   const banner = document.getElementById('cookieBanner');
   const accept = document.getElementById('cookieAccept');
@@ -250,6 +254,7 @@
     }
   })();
 </script>
+
     
 </body>
 </html>
